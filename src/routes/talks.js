@@ -51,4 +51,15 @@ routerTalks.put('/:id', (req, res) => {
     })
 })
 
+routerTalks.delete('/:id', (req, res) => {
+
+    talksModel.destroy({where:{id:req.params.id}})
+    .then( () => {
+        res.send('deleted');
+    })
+    .catch( error => {
+        res.status(400).send(error);
+    })
+})
+
 export default routerTalks;
