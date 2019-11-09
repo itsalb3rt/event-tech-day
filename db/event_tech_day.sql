@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-11-2019 a las 17:49:32
+-- Tiempo de generación: 09-11-2019 a las 22:40:32
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -34,8 +34,18 @@ CREATE TABLE `speakers` (
   `id` int(11) NOT NULL,
   `name` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `github_account` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL
+  `github_account` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `speakers`
+--
+
+INSERT INTO `speakers` (`id`, `name`, `email`, `github_account`, `createdAt`, `updatedAt`) VALUES
+(2, 'Albert Hidalgo', 'itsalb3rt@gmail.com', 'itsalb3rt', '2019-11-09 21:39:48', '0000-00-00 00:00:00'),
+(3, 'Albert Hidalgo', 'itsalb3rt@gmail.com', 'itsalb3rt', '2019-11-09 21:40:08', '2019-11-09 21:40:08');
 
 -- --------------------------------------------------------
 
@@ -48,8 +58,17 @@ CREATE TABLE `talks` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tags` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_speaker` int(11) NOT NULL,
-  `time` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL
+  `time` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updatedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `talks`
+--
+
+INSERT INTO `talks` (`id`, `name`, `tags`, `id_speaker`, `time`, `createdAt`, `updatedAt`) VALUES
+(3, 'Title', 'foo,bar', 1, '08:00 AM to 09:00 AM', '2019-11-09 20:49:24', '2019-11-09 20:49:24');
 
 --
 -- Índices para tablas volcadas
@@ -75,13 +94,13 @@ ALTER TABLE `talks`
 -- AUTO_INCREMENT de la tabla `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `talks`
 --
 ALTER TABLE `talks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
