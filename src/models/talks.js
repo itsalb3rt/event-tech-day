@@ -3,16 +3,19 @@ import db from './connection'
 
 const talksModel = db.define('talks',{
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     tags: {
         type: Sequelize.STRING
     },
     id_speaker: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     time: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     createdAt: {
         type: Sequelize.DATE
