@@ -16,6 +16,12 @@ run dev
 $ npm run dev
 ```
 
+# Database
+
+In the repository dir you have a `db` dir, this contain the database schema, import this in your database.
+
+After import the database go to `src/models/` and open the `connection.js` file and set your database authentication info.
+
 # Routes
 
 - /api/talks
