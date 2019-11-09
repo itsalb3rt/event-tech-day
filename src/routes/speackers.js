@@ -31,7 +31,6 @@ routerSpeakers.get('/:id', (req, res) => {
 
 routerSpeakers.post('/', (req, res) => {
     let newEvent = req.body;
-    newEvent.createAt = Date.now();
 
     speakersModel.create(newEvent)
         .then(talk => {
@@ -44,7 +43,6 @@ routerSpeakers.post('/', (req, res) => {
 
 routerSpeakers.put('/:id', (req, res) => {
     let updateEvent = req.body;
-    updateEvent.updatedAt = Date.now();
 
     speakersModel.update(updateEvent, {
             where: {
