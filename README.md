@@ -24,7 +24,7 @@ $ npm run dev
 ### Allow Methods
 
 | Method |
--
+|---|
 |  GET **or** GET/{id}      |
 |  POST                     |
 |  PUT/{id}                 |
