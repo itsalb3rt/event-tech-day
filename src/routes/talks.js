@@ -39,8 +39,16 @@ routerTalks.post('/', (req, res) => {
 });
 
 routerTalks.put('/:id', (req, res) => {
-    //Update
-    res.send('update talk');
+    let updateEvent = req.body;
+    updateEvent.updatedAt = Date.now();
+
+    talksModel.update(updateEvent,{where:{id:req.params.id}})
+    .then(talk => {
+        res.send(talk);
+    })
+    .catch( error => {
+        res.status(400).send('Error in insert new record');
+    })
 })
 
 export default routerTalks;
