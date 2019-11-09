@@ -14,8 +14,6 @@ const speakersModel = db.define('speakers', {
         type: Sequelize.INTEGER,
         allowNull: false
     }
-}, {
-    timestamps: false,
 })
 
 export default speakersModel;
