@@ -20,8 +20,22 @@ routerTalks.get('/:id', (req, res) => {
 });
 
 routerTalks.post('/', (req, res) => {
-    //Save
-    res.send('save talk');
+    let newEvent = req.body;
+    newEvent.createAt = Date.now();
+
+    talksModel.create({
+        name: newEvent.name,
+        tags: newEvent.tags,
+        id_speaker: newEvent.id_speaker,
+        time: newEvent.time,
+        createdAt: newEvent.createAt
+    })
+    .then(talk => {
+        res.send(talk);
+    })
+    .catch( error => {
+        res.status(400).send('Error in insert new record');
+    })
 });
 
 routerTalks.put('/:id', (req, res) => {
