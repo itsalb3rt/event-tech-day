@@ -2,6 +2,11 @@ import Sequelize from 'sequelize'
 import db from './connection'
 
 const talksModel = db.define('talks',{
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     name: {
         type: Sequelize.STRING,
         allowNull: false
@@ -9,7 +14,7 @@ const talksModel = db.define('talks',{
     tags: {
         type: Sequelize.STRING
     },
-    id_speaker: {
+    speakerId: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
