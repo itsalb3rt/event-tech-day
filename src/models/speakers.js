@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize'
-import db from './connection'
+import sequelize from './connection'
 
-const speakersModel = db.define('speakers', {
+const speakersModel = sequelize.define('speakers', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
