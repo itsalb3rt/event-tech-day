@@ -1,7 +1,8 @@
 import Sequelize from 'sequelize'
 import sequelize from './connection'
+import speakersModel from './speakers'
 
-const talksModel = sequelize.define('talks',{
+const talksModel = sequelize.define('talks', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -29,5 +30,7 @@ const talksModel = sequelize.define('talks',{
         type: Sequelize.DATE
     }
 })
+
+talksModel.belongsTo(speakersModel)
 
 export default talksModel;

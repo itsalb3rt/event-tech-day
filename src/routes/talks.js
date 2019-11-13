@@ -1,11 +1,16 @@
 import express from 'express'
 import talksModel from './../models/talks'
+import speakersModel from './../models/speakers'
 
 var routerTalks = express.Router();
 
 routerTalks.get('/', (req, res) => {
 
-    talksModel.findAll()
+    talksModel.findAll({
+            include: {
+                model: speakersModel
+            }
+        })
         .then(talks => {
             res.send(talks);
         })
