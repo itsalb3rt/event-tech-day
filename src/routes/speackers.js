@@ -65,7 +65,7 @@ routerSpeakers.delete('/:id', (req, res) => {
             }
         })
         .then(() => {
-            res.send('deleted');
+            res.send();
         })
         .catch(error => {
             res.status(400).send(error.errors);
