@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports: 
+      - 33061:3306
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - mysqldata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+
+  event-tech-day:
+    image: hectorvent/event-tech-day:latest
+    restart: always
+    ports:
+      - 8090:3000
+    environment:
+      - PASSWORD=example
+      - HOST=mysql
+
+volumes:
+  mysqldata:

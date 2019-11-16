@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node --presets babel-preset-env"
+    "dev": "nodemon src/index.js --exec babel-node --presets babel-preset-env",
+    "build": "babel --presets babel-preset-env src --out-dir dist"
   },
   "keywords": [],
   "author": "",
