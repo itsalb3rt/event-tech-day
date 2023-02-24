@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "mariadb": "^2.1.2",
     "mysql": "^2.17.1",
-    "sequelize": "^5.21.2"
+    "sequelize": "^6.29.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
